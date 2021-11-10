@@ -1,14 +1,22 @@
 
+/*
+Cleaning Data in SQL Queries
+*/
 
+
+-- view dataset
 select * from master.dbo.Housing_Data
 
+-- coverts and set proper date format
 select SaleDate, CONVERT(date, SaleDate) from master.dbo.Housing_Data;
 
 select SaleDate, cast(SaleDate as date) from master.dbo.Housing_Data;
 
+-- add new date column
 alter table master.dbo.Housing_Data
 add SaleDateConverted date;
 
+--  update date column
 update master.dbo.Housing_Data set SaleDateConverted = convert(date, SaleDate);
 
 alter table master.dbo.Housing_Data
